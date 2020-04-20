@@ -52,7 +52,12 @@ library
 
   hs-source-dirs:   src
 
-  extra-libraries:  rocksdb
+  if os(windows)
+    -- this is what the mingw-w64-x86_64-rocksdb package from msys2 requires
+    extra-libraries: rocksdb, zstd, snappy, z, lz4, bz2, rpcrt4, stdc++
+    ghc-options: -static
+  else
+    extra-libraries:  rocksdb
 
 test-suite rocksdb-tests
   ghc-options: -Wall
