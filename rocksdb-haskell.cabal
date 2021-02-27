@@ -52,7 +52,7 @@ library
 
   hs-source-dirs:   src
 
-  extra-libraries:  rocksdb
+  extra-libraries:  rocksdb, zstd, snappy, z, lz4, bz2, stdc++
 
 test-suite rocksdb-tests
   ghc-options: -Wall
